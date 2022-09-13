@@ -1,4 +1,5 @@
 const content = document.querySelector('.container');
+let amount = 1;
 const api = "https://graditest-store.myshopify.com/products/free-trainer-3-mmw.js";
 
 fetch(api)
@@ -76,6 +77,112 @@ function uploadProducts(productos){
     </div>
     `;
 
+    const buttonLess = document.querySelector('.amount-less');
+    const buttonPlus = document.querySelector('.amount-plus');
+    let amounts = document.querySelector('.amounts');
+    let finalPrice = document.querySelector('.final-price');
+    const carouselCont = document.querySelector('.carousel-cont');
+    const carouselPoints = document.querySelectorAll("li[class='point']");
+    const cover = document.querySelector('.cover');
+    const images = document.querySelectorAll("img[class='images']");
+    const sizeBtns = document.querySelectorAll("button[class='available-sizes']");
+    const colorsBtn = document.querySelectorAll("input[name='colours']");
+    const addCartBtn = document.querySelector('.add-cart');
+    const cartBtn = document.querySelector('.cart');
+    const cartList = document.querySelector('.list');
+    let size;
+    let colorLabel;
+
+    images.forEach(img =>{
+        img.addEventListener('click', () =>{
+            cover.src = img.src;
+        })
+    })
+
+    carouselPoints.forEach( (e , i) => {
+        carouselPoints[i].addEventListener('click', () =>{
+            let position = i;
+            let calc = position * -25
+            carouselCont.style.transform = `translateX(${calc}%)`;
+            carouselCont.style.animation = "none";
+
+            setTimeout(() => {
+                carouselCont.style.animation = "carousel 20s infinite";
+              }, "2000")
+
+            carouselPoints.forEach( (point, i) =>{
+                carouselPoints[i].classList.remove('active')
+            })
+            carouselPoints[i].classList.add('active')
+        })
+    });
+
+    sizeBtns.forEach(btn =>{
+        btn.addEventListener('click', e =>{
+            size= e.target.id;
+        })
+    })
+
     
+    colorsBtn.forEach(btnColor =>{
+        btnColor.addEventListener('click', e =>{
+            colorLabel = e.target.value;
+            
+        })
+    })
+
+    buttonLess.addEventListener('click', () =>{
+        if( amount != 0){
+            amount = amount - 1;
+            finalPrice.textContent = finalPrice.textContent - productos.price;
+            amounts.textContent = amount;
+        } 
+    })
+
+    buttonPlus.addEventListener('click', () =>{
+        amount = amount + 1;
+        finalPrice.textContent = productos.price * amount;
+        amounts.textContent = amount;
+    })
+
+    cartBtn.addEventListener('click', () =>{
+        if(cartList.style.display == "none"){
+            cartList.style.display = "block";
+            cartBtn.innerHTML = `<i class="fas fa-times-circle"></i>`;
+        }else if(cartList.style.display == "block"){
+            cartList.style.display = "none";
+            cartBtn.innerHTML = `<i class="fas fa-shopping-cart"></i>`;
+        }
+    })
+
+    addCartBtn.addEventListener('click', () =>{
+        const title = document.querySelector('.title').textContent;
+        const price = finalPrice.textContent;
+        const amountCart = amounts.textContent;
+        const imgCart = cover.src;
+        const sizeCart = size;
+        const colorCart = colorLabel;
+      
+
+        if(price == 0 || amountCart == 0 || sizeCart == undefined || colorCart == undefined){
+            alert('Please select the quantity, size and color of the product to be able to add to the cart');
+        }else{
+            cartList.innerHTML = `
+        <div class="item">
+            <div class="item-img">
+                <img src="${imgCart}" width="90%" height="auto">
+            </div>
+            <div class="item-detail">
+                <p class="title"><b>${title}</b></p>
+                <span>Cant: ${amountCart}</span> | <span>$ ${price}</span><br />
+                <span>SZ: ${sizeCart}</span> | <span>CL: 
+                <span style="background-color:${colorCart}; padding: 0.1% 4%; border-radius: 50%"></span>
+                </span>
+            </div>
+        </di>
+        `;
+        }
+        
+    })
     
 }
