@@ -1,0 +1,1 @@
+Inicie la app con un servidor local de desarrollo como Live Server de Studio Code, ejecutar el archivo HTML directamente generará error.
