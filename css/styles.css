@@ -1,0 +1,368 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Balsamiq";
+}
+
+
+.top-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    padding: 2%;
+    top: 0;
+    z-index: 999;
+}
+
+.top-bar .logo h2{
+    margin: 0;
+}
+
+.top-bar nav .cart{
+    list-style: none;
+    cursor: pointer;
+}
+
+.list{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #dadada;
+    position: fixed;
+    background: #fff;
+    transition: all 1.5s ease;
+    top: 10%;
+    right: 0;
+    z-index: 9999;
+}
+
+.list .item{
+    display: flex;
+    border-bottom: 1px solid #dadada;
+}
+
+.list .item .item-img{
+    width: 30%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.list .item .item-detail{
+    width: 70%;
+}
+
+.product-page{
+    display: flex;
+}
+
+.path{
+    margin: 10% 0% 0% 2%;
+}
+
+.product-page .product-image, .product-page .product-description{
+    width: 50%;
+    margin: 2%;
+}
+
+.product-page .product-image{
+    overflow-x: hidden;
+}
+
+.product-page .product-image .image-cover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f6f7;
+    justify-content: center;
+}
+
+.product-page .product-image .image-cover img{
+    width: 100%;
+}
+
+.product-page .product-image .carousel{
+    width: 100%;
+}
+
+.product-page .product-image .carousel .carousel-cont{
+    width: 200%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    transition: all .5s ease;
+    transform: translateX(0%);
+    animation: carousel 20s infinite;
+}
+
+.product-page .product-image .carousel .carousel-cont img{
+    width: calc(100% / 4);
+    cursor: pointer;
+}
+.product-page .product-image .carousel .nav-imgs{
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-page .product-image .carousel .nav-imgs .point{
+    width: 0.4em;
+    font-size: 57px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #c6c6c6;
+    cursor: pointer;
+}
+
+.product-page .product-image .carousel .nav-imgs .point.active{
+    color: #000;
+}
+
+.line-bottom{
+    border-bottom: 1px solid #f8f6f7;
+}
+
+.product-page .product-description .details{
+    padding: 3% 0%;
+}
+
+.product-page .product-description .div-size, .product-page .product-description .div-color{
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.product-page .product-description .div-size span, .product-page .product-description .div-color span{
+    width: 10%;
+}
+
+.product-page .product-description .div-size .btn-size, .product-page .product-description .div-color .btn-colors{
+    width: 90%;
+}
+
+
+.product-page .product-description .details input[name="colours"] {
+    -webkit-appearance:none;
+    width:20px; height:20px;
+    border-radius:50%;
+    outline:none; 
+  }
+
+  .product-page .product-description .details input[name="colours"]:checked {
+    border: 3px solid #dadada;
+  }
+
+.product-page .product-description .details .title{
+    margin: 0;
+}
+
+.product-page .product-description .details .price{
+    font-size: xx-large;
+    font-weight: 600;
+    margin-right: 2%;
+}
+
+.product-page .product-description .details .price-compare{
+    color: #c1bdbd;
+    text-decoration:line-through;
+    font-size: large;
+}
+
+.product-page .product-description .details .available-sizes{
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    border: #c1bdbd 1px solid;
+    margin: 1% 0.5%;
+    color: #c1bdbd;
+    cursor: pointer;
+    transition-duration: 0.4s
+}
+.product-page .product-description .details .available-sizes:hover{
+    border: #000 1px solid;
+    color: #000;
+    cursor: pointer;
+}
+
+.product-page .product-description .details .available-sizes:after{
+    background-color: red;
+}
+
+.product-page .product-description .details-count{
+    padding: 3% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.product-page .product-description .amount{
+    width: 20%;
+    border: 1px solid #c1bdbd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-page .product-description .amount button{
+    background: transparent;
+    border: none;
+    font-size: larger;
+    font-weight: 600;
+    margin: 1%;
+    cursor: pointer;
+}
+
+.product-page .product-description .amount span{
+    font-size: large;
+}
+
+.product-page .product-description .details-count .total-price p{
+ margin: 0;
+}
+
+.product-page .product-description .details-buttons{
+    padding: 3% 0%;
+    display: flex;
+}
+
+.product-page .product-description .details-buttons .add-favourite, .product-page .product-description .details-buttons .add-cart{
+    margin: auto;
+    width: 48%;
+    background-color: #f4f4f4;
+    border: none;
+    padding: 3%;
+    font-weight: 500;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.product-page .product-description .details p{
+    color: #c1bdbd;
+}
+
+@keyframes carousel{
+    0%{ transform: translateX(0%) }
+    25%{ transform: translateX(-25%) }
+    50%{ transform: translateX(-50%) }
+    75%{ transform: translateX(-75%) }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .product-page{
+        display: flex;
+        margin-top: 10%;
+    }
+
+    .path{
+        display: none;
+    }
+
+    .product-page .product-image .image-cover{
+        display: none;
+    }
+
+    .product-page .product-description .div-size span, .product-page .product-description .div-color span{
+        width: 20%;
+    }
+
+    .product-page .product-image .carousel .carousel-cont{
+        width: 400%;
+    }
+    
+}
+@media only screen and (max-width: 768px) {
+    .product-page{
+        display: flex;
+        margin-top: 10%;
+    }
+
+    .path{
+        display: none;
+    }
+
+    .product-page .product-image .image-cover{
+        display: none;
+    }
+
+    .product-page .product-description .div-size span, .product-page .product-description .div-color span{
+        width: 20%;
+    }
+
+    .product-page .product-image .carousel .carousel-cont{
+        width: 400%;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    .list{
+        width: 100%;
+        top: 8%;
+    }
+
+    .product-page{
+        display: block;
+    }
+
+    .path{
+        display: none;
+    }
+
+    .product-page .product-image, .product-page .product-description{
+        width: 100%;
+    }
+
+    .product-page .product-image .image-cover{
+        display: none;
+    }
+
+    .product-page .product-image .carousel{
+        margin-top: 20%;
+    }
+
+    .product-page .product-image .carousel .carousel-cont{
+        width: 400%;
+    }
+    .product-page .product-image{
+        margin: 0;
+    }
+    .product-description{
+        margin: 0 3%;
+    }
+
+    .product-page .product-description .div-size span, .product-page .product-description .div-color span{
+        width: 20%;
+    }
+    
+    .product-page .product-description .div-size .btn-size, .product-page .product-description .div-color .btn-colors{
+        width: 80%;
+    }
+
+    .product-page .product-description .amount{
+        width: 40%;
+    }
+
+    .product-page .product-description .details-buttons{
+        padding: 3%;
+        display: block;
+    }
+
+    .product-page .product-description .details-buttons .add-favourite, .product-page .product-description .details-buttons .add-cart{
+        width: 100%;
+        margin-top: 5%;
+    }
+
+}
