@@ -1,1 +1,2 @@
 Inicie la app con un servidor local de desarrollo como Live Server de Studio Code, ejecutar el archivo HTML directamente generará error.
+Las fotos del carrusel animado se pueden ampliar al hacer clic sobre ellas, se visualizarán en el espacio derecho de la foto grande.
